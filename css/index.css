@@ -1,0 +1,93 @@
+#container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+/* 图的标题 */
+.chart-title-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.chart-title-ch {
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+.chart-title-en {
+    font-size: 12px;
+
+}
+
+.button-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    height: 35px;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgb(228, 218, 78, 0.2);
+}
+
+/* 横向布局 */
+.horizontal-layout {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+/* 分布散点图 */
+#scatter-plot-chart {
+    width: 70%;
+    height: 500px;
+}
+
+
+/* 植物种类旭日图 */
+#plant-species-chart {
+    width: 100%;
+    height: 700px;
+}
+
+/* 树叶形状的图 */
+#leaf-shape-chart {
+    width: 70%;
+    height: 500px;
+}
+
+/* 画叶序的图 */
+#leaf-order-chart {
+    width: 70%;
+    height: 500px;
+}
+
+/* 植物开花结果图 */
+#bloom-time-chart {
+    width: 100%;
+    height: 800px;
+}
+
+/* 桑基图  */
+#sankey-chart {
+    width: 80%;
+    height: 700px;
+    margin-left: 10%;
+}
+
+/* 土壤内容物图 */
+#soil-content-chart {
+    width: 70%;
+    height: 500px;
+    margin-top: 50px;
+}
+
+img {
+    width: 70%;
+}
