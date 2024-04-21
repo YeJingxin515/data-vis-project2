@@ -333,6 +333,7 @@ function drawSpeciesChart() {
             radius: [0, '90%'],
             label: {
                 rotate: 'radial',
+                fontSize: 6, 
             },
             itemStyle: {
                 borderRadius: 5,

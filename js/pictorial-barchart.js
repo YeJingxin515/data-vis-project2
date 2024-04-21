@@ -1,7 +1,7 @@
 //画树叶形状的图
 function drawShapeChart() {
     var dom = document.getElementById('leaf-shape-chart');
-    
+
     var myChart = echarts.init(dom, null, {
         renderer: 'svg',
         useDirtyRect: false
@@ -14,14 +14,18 @@ function drawShapeChart() {
             },
             formatter: function (params) {
                 return params[0].name + ': ' + params[0].value;
+            },
+            textStyle: {
+                fontSize: 8 // 设置提示框中文字的字体大小为12px
             }
         },
         xAxis: {
-            data: ['椭圆形', '卵形', '披针形', '条形', '针形', '心形', '圆形', '指状','鳞片状'],
+            data: ['椭圆形', '卵形', '披针形', '条形', '针形', '心形', '圆形', '指状', '鳞片状'],
             axisTick: { show: false },
             axisLine: { show: false },
             axisLabel: {
-                color: '#88C057'
+                color: '#88C057',
+                fontSize: 8
             }
         },
         yAxis: {
@@ -37,9 +41,10 @@ function drawShapeChart() {
                 type: 'pictorialBar',
                 barCategoryGap: '-130%',
                 symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+
                 itemStyle: {
                     opacity: 0.5,
-                    color: "#88C057"
+                    color: "#88C057",
                 },
                 emphasis: {
                     itemStyle: {
@@ -54,7 +59,7 @@ function drawShapeChart() {
                 type: 'pictorialBar',
                 barGap: '-100%',
                 symbolPosition: 'end',
-                symbolSize: 30,
+                symbolSize: 10,
                 symbolOffset: [0, '-120%'],
                 data: [
                     {
@@ -122,7 +127,7 @@ function drawOrderChart() {
         show: true,
         position: 'right',
         offset: [10, 0],
-        fontSize: 16
+        fontSize: 8
     };
     option = {
         tooltip: {
@@ -141,13 +146,11 @@ function drawOrderChart() {
             axisLine: { show: false },
             axisTick: { show: false },
             axisLabel: {
-                margin: 30,
-                fontSize: 14
+                fontSize: 8
             },
             axisPointer: {
                 label: {
                     show: true,
-                    margin: 20
                 }
             }
         },
@@ -162,7 +165,7 @@ function drawOrderChart() {
                 type: 'pictorialBar',
                 label: labelSetting,
                 symbolRepeat: true,
-                symbolSize: 30,
+                symbolSize: 10,
                 data: [
                     {
                         value: 7,

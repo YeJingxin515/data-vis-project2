@@ -260,14 +260,18 @@ function drawPlotChart(name) {
         legend: {
             data: getLegendData(name),
             left: 'center',
-            top: 10
+            top: 10,
+            textStyle: {
+                fontSize: 8 // 设置图例字体大小为12px
+            }
         },
         xAxis: [
             {
                 type: 'value',
                 scale: true,
                 axisLabel: {
-                    formatter: '{value}°'
+                    formatter: '{value}°',
+                    fontSize: 8
                 },
                 splitLine: {
                     show: false
@@ -279,7 +283,8 @@ function drawPlotChart(name) {
                 type: 'value',
                 scale: true,
                 axisLabel: {
-                    formatter: '{value}°'
+                    formatter: '{value}°',
+                    fontSize: 8
                 },
                 splitLine: {
                     show: false

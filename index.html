@@ -7,84 +7,181 @@
   <link rel="stylesheet" href="./css/index.css" />
 </head>
 
-<body style="height: 100%; margin: 0">
-  <div id="container" style="height: 100%">
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物分布图</div>
-      <div class="chart-title-en">Plant Distribution Map</div>
+<body>
+  <div class="app">
+    <div class="header horizontal-layout">
+      <div>Natural Textures of Xinhua Community</div>
     </div>
-    <div class="button-group">
-      <button onclick="drawPlotChart('Family')">种类(Family)</button>
-      <button onclick="drawPlotChart('Shape')">叶片形状(Leaf Shape)</button>
-      <button onclick="drawPlotChart('Arrangement')">叶序(Leaf Arrangement)</button>
-      <button onclick="drawPlotChart('Soil')">土壤类型(Soil Type)</button>
+    <div class="header-subtitle">
+      A cooperative visual natural map of Xinhua Road
     </div>
+    <!-- 第一行的图表 -->
     <div class="horizontal-layout">
-      <div id="scatter-plot-chart"></div>
-    </div>
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物种类图</div>
-      <div class="chart-title-en">Plant Species Diagram</div>
+      <div style="width: 12%;padding: 10px;">
+        <div class="card" style="height: 420px;overflow-y: scroll;">
+          <div class="chart-title-container">
+            <div class="chart-title-ch">加入你的数据</div>
+            <div class="chart-title-en">Add some Data</div>
+          </div>
+          <div class="form">
+            <button onclick="add()">添加 Add</button>
+            <div class="name">植物名称(Plant Name)</div>
+            <input type="text" placeholder="Please enter the plant name">
+
+            <div class="name">位置(Location)</div>
+            <input type="text" placeholder="format:(latitude,longitude)">
+
+            <div class="name">植物种类(Plant Family)</div>
+            <input type="text" placeholder="Please enter the plant family">
+
+            <div class="name">叶形(Leaf Shape)</div>
+            <select>
+              <option value="">Please choose</option>
+              <option value="针形">针形</option>
+              <option value="披针形">披针形</option>
+              <option value="条形">条形</option>
+              <option value="卵形">卵形</option>
+              <option value="圆形">圆形</option>
+              <option value="椭圆形">椭圆形</option>
+              <option value="指状">指状</option>
+              <option value="鳞片状">鳞片状</option>
+              <option value="心形">心形</option>
+            </select>
+
+            <div class="name">叶序(Leaf Order)</div>
+            <select>
+              <option value="">Please choose</option>
+              <option value="互生">互生</option>
+              <option value="轮生">轮生</option>
+              <option value="对生">对生</option>
+              <option value="簇生">簇生</option>
+            </select>
+
+            <div class="name">植物照片(Plant photo)</div>
+            <input type="file" placeholder="Please upload plant photo" class="file-upload">
+
+            <div class="name">土壤种类(Soil Type)</div>
+            <select>
+              <option value="">Please choose</option>
+              <option value="砂土">砂土</option>
+              <option value="壤土">壤土</option>
+              <option value="黏土">黏土</option>
+            </select>
+
+            <div class="name">土壤内容物(Soil Content)</div>
+            <input type="text" placeholder="Please separate with commas">
+
+            <div class="name">土壤照片(Soil photo)</div>
+            <input type="file" placeholder="Please upload soil photo" class="file-upload">
+
+          </div>
+        </div>
+      </div>
+      <div style="width: 44%;padding: 10px;">
+        <div id="scatter-plot-chart-container" class="card" style="height: 420px;">
+          <div class="chart-title-container">
+            <div class="chart-title-ch">植物分布图</div>
+            <div class="chart-title-en">Plant Distribution Map</div>
+          </div>
+          <div class="horizontal-layout button-group">
+            <button onclick="drawPlotChart('Family')">种类(Family)</button>
+            <button onclick="drawPlotChart('Shape')">叶片形状(Leaf Shape)</button>
+            <button onclick="drawPlotChart('Arrangement')">叶序(Leaf Arrangement)</button>
+            <button onclick="drawPlotChart('Soil')">土壤类型(Soil Type)</button>
+          </div>
+          <div class="horizontal-layout">
+            <div id="scatter-plot-chart"></div>
+          </div>
+        </div>
+
+      </div>
+      <div style="width: 44%;padding: 10px;">
+        <div id="bloom-time-chart-container" class="card" style="height: 420px;">
+          <div class="chart-title-container">
+            <div class="chart-title-ch">植物生长时序图</div>
+            <div class="chart-title-en">Plant Growth Timeline Chart</div>
+          </div>
+          <div id="bloom-time-chart" class="horizontal-layout">
+            <img src="img//bloomTimeChart.svg" alt="bloom-time-chart" style="width: 85%;" />
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="plant-species-chart"></div>
+    <!-- 第二行的图表 -->
+    <div>
+      <div class="horizontal-layout">
+        <div style="width: 25%;padding: 10px;">
+          <div id="plant-species-chart-container" class="card" style="height: 350px;">
+            <div class="chart-title-container">
+              <div class="chart-title-ch">植物种类图</div>
+              <div class="chart-title-en">Plant Species Diagram</div>
+            </div>
 
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物叶片形状图</div>
-      <div class="chart-title-en">Leaf Shape Diagram</div>
-    </div>
-    <div class="horizontal-layout">
-      <div id="leaf-shape-chart"></div>
-    </div>
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物叶序图</div>
-      <div class="chart-title-en">Leaf Arrangement Diagram</div>
-    </div>
-    <div class="horizontal-layout">
-      <div id="leaf-order-chart"></div>
-    </div>
+            <div id="plant-species-chart"></div>
+          </div>
+        </div>
+        <div style="width: 22%;padding: 10px;">
+          <div id="leaf-shape-chart-container" class="card" style="height: 170px;">
+            <div class="chart-title-container">
+              <div class="chart-title-ch">植物叶片形状图</div>
+              <div class="chart-title-en">Leaf Shape Diagram</div>
+            </div>
+            <div class="horizontal-layout">
+              <div id="leaf-shape-chart"></div>
+            </div>
+          </div>
+          <div id="leaf-order-chart-container" class="card" style="height: 170px;margin-top: 10px;">
+            <div class="chart-title-container">
+              <div class="chart-title-ch">植物叶序图</div>
+              <div class="chart-title-en">Leaf Arrangement Diagram</div>
+            </div>
+            <div class="horizontal-layout">
+              <div id="leaf-order-chart"></div>
+            </div>
+          </div>
+        </div>
 
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物生长时序图</div>
-      <div class="chart-title-en">Plant Growth Timeline Chart</div>
+        <div style="width:28%;padding: 10px;">
+          <div id="soil-content-chart-container" class="card" style="height: 350px;">
+            <div class="chart-title-container">
+              <div class="chart-title-ch">土壤内容物图</div>
+              <div class="chart-title-en">Soil Content Diagram</div>
+            </div>
+            <div class="horizontal-layout">
+              <div id="soil-content-chart"></div>
+            </div>
+          </div>
+        </div>
+        <div style="width:25%;padding: 10px;">
+          <div id="sankey-chart-container" class="card" style="height: 350px;">
+            <div class="chart-title-container">
+              <div class="chart-title-ch">植物土壤桑基图</div>
+              <div class="chart-title-en">Plant Soil Sankey Chart</div>
+            </div>
+            <div class="horizontal-layout">
+              <div id="sankey-chart1"></div>
+              <div id="sankey-chart2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="bloom-time-chart">
-      <img src="img//bloomTimeChart.svg" alt="bloom-time-chart" />
-    </div>
-
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">植物土壤桑基图</div>
-      <div class="chart-title-en">Plant Soil Sankey Chart</div>
-    </div>
-    <div class="horizontal-layout">
-      <div id="sankey-chart"></div>
-    </div>
-
-
-    <!-- -------------------------------------------------- -->
-    <div class="chart-title-container">
-      <div class="chart-title-ch">土壤内容物图</div>
-      <div class="chart-title-en">Soil Content Diagram</div>
-    </div>
-    <div class="horizontal-layout">
-      <div id="soil-content-chart"></div>
-    </div>
-
-
   </div>
   <script type="text/javascript" src="./js/scatter-plot-chart.js"></script>
   <script type="text/javascript" src="./js/pictorial-barchart.js"></script>
   <script type="text/javascript" src="./js/sunburst-chart.js"></script>
   <script type="text/javascript" src="./js/funnel-chart.js"></script>
   <script type="text/javascript" src="./js/sankey-chart.js"></script>
+  <script type="text/javascript" src="./js/upload.js"></script>
+
 
 
 
 </body>
+
+<div id="overlay">
+  <div id="loader"></div>
+</div>
 
 </html>

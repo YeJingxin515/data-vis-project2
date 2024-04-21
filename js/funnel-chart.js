@@ -10,12 +10,17 @@ function drawSoilContentChart() {
         tooltip: {
             trigger: 'item',
             formatter: function (params) {
-                console.log(params.values)
                 return params.name + ' : ' + (params.value / 0.5) + '%';
             }
         },
         legend: {
-            data: ['泥土', '石子', '枯叶', '新鲜叶片', '枯枝', '动物尸体', '垃圾', '粪便', '草根']
+            data: ['泥土', '石子', '枯叶', '新鲜叶片', '枯枝', '动物尸体', '垃圾', '粪便', '草根'],
+            textStyle: {
+                fontSize: 6
+            },
+            itemWidth: 15,
+            itemHeight: 10,
+            itemGap: 5   
         },
         series: [
             {
@@ -33,7 +38,8 @@ function drawSoilContentChart() {
                 gap: 2,
                 label: {
                     show: true,
-                    position: 'inside'
+                    position: 'inside',
+                    fontSize: 6
                 },
                 labelLine: {
                     length: 10,
